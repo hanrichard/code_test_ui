@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import Fuse from 'fuse.js';
+
 import PropTypes from 'prop-types';
 import Companyheader from './CompanyHeader';
 import CompanyPanel from './CompanyPanel';
+import CompanyStaffList from './CompanyStaffList';
+import CompanyModal from './CompanyModal';
+import CompanyEmpolyeeInfo from './CompanyEmpolyeeInfo';
+import Container from '@material-ui/core/Container';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -11,15 +17,38 @@ class Company extends Component {
 		this.state = {
 			companyInfo: null,
 			show: false,
-			staff: {},
+			employee: {},
 			term: '',
+			select: 'lastName',
 		};
 	}
 
-	onChangeHandler = e => {
-		const inputValue = e.target.value;
+	onChangeInput = e => {
 		this.setState({
-			term: inputValue,
+			term: e.target.value,
+		});
+	};
+
+	onChangeSelect = e => {
+		this.setState({
+			select: e.target.value,
+		});
+	};
+
+	showModal = id => {
+		const { employees } = this.props.companies;
+		const employee = employees.find(element => element.id === id);
+
+		this.setState({
+			show: true,
+			employee,
+		});
+	};
+
+	hideModal = () => {
+		this.setState({
+			show: false,
+			employee: {},
 		});
 	};
 
@@ -28,20 +57,34 @@ class Company extends Component {
 	}
 
 	render() {
-		const { companies, employees } = this.props;
-		const { term } = this.state;
+		const { companies } = this.props;
+		const { employees, companyInfo } = companies;
+		const { term, show, employee, select, displayList } = this.state;
 
-		return companies.length === 0 ? (
+		return this.props.companies.length === 0 ? (
 			<CircularProgress />
 		) : (
-			<div className="Company__container">
-				<Companyheader info={companies.companyInfo} />
+			<Container maxWidth="lg">
 				<div className="Company__container">
-					<CompanyPanel onChangeInput={this.onChangeHandler} searchValue={term} />
+					<Companyheader info={companyInfo} />
+					<div className="Company__container">
+						<CompanyPanel
+							onChangeInput={this.onChangeInput}
+							onChangeSelect={this.onChangeSelect}
+							searchValue={term}
+							selectValue={select}
+						/>
+					</div>
+					<div className="Company__card">
+						<CompanyStaffList employees={employees} showModal={this.showModal} employee={employee} />
+					</div>
+					<div className="Company__modal">
+						<CompanyModal show={show} hideModal={this.hideModal}>
+							<CompanyEmpolyeeInfo employee={employee} />
+						</CompanyModal>
+					</div>
 				</div>
-				<div className="Company__card">cards</div>
-				<div className="Company__modal">modal</div>
-			</div>
+			</Container>
 		);
 	}
 }

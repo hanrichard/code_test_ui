@@ -1,15 +1,24 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const CompanySelect = ({ value, sortOptions, onChange }) => (
-	<select value={value} onChange={onChange}>
-		{sortOptions.map(option => {
-			return (
-				<option value={option.value} key={option.value}>
-					{option.label}
-				</option>
-			);
-		})}
-	</select>
+	<TextField
+		id="outlined-select-currency"
+		select
+		label="Sort"
+		value={value}
+		onChange={onChange}
+		helperText="Sort by"
+		margin="normal"
+		variant="outlined"
+	>
+		{sortOptions.map(option => (
+			<MenuItem key={option.value} value={option.value}>
+				{option.label}
+			</MenuItem>
+		))}
+	</TextField>
 );
 
 export default CompanySelect;

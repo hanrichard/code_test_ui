@@ -3,10 +3,31 @@ import PropTypes from 'prop-types';
 
 import CompanySelect from './CompanySelect';
 import CompanySearch from './CompanySearch';
+import styled from 'styled-components';
+import Typography from '@material-ui/core/Typography';
+
+const Wrapper = styled.div`
+	.Company__panel {
+		margin-bottom: 30px;
+
+		@media only screen and (min-width: 600px) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	.Company__panel-sortandsearch {
+		display: flex;
+	}
+	.Company__panel-sort {
+		margin-right: 10px;
+	}
+`;
 
 class CompanyPanel extends Component {
 	render() {
-		const { term, onChangeInput, onChangeSelect } = this.props;
+		const { onChangeInput, onChangeSelect, searchValue, selectValue } = this.props;
 
 		const sortOptions = [
 			{
@@ -20,19 +41,25 @@ class CompanyPanel extends Component {
 		];
 
 		return (
-			<div>
-				<h3>Our Employees</h3>
-				<div>
-					<span>
-						Sort by:
-						<CompanySelect sortOptions={sortOptions} onChange={onChangeSelect} />
-					</span>
-					<span>
-						Search:
-						<CompanySearch value={term} onChange={onChangeInput} />
-					</span>
+			<Wrapper>
+				<div className="Company__panel">
+					<div className="Company__panel-heading">
+						<Typography variant="h4" component="h2" gutterBottom>
+							Our Employees
+						</Typography>
+					</div>
+					<div className="Company__panel-sortandsearch">
+						<div className="Company__panel-sort">
+							<CompanySelect sortOptions={sortOptions} value={selectValue} onChange={onChangeSelect} />
+						</div>
+						<div className="Company__panel-search">
+							<span>
+								<CompanySearch value={searchValue} onChange={onChangeInput} />
+							</span>
+						</div>
+					</div>
 				</div>
-			</div>
+			</Wrapper>
 		);
 	}
 }

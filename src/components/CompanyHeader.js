@@ -24,24 +24,22 @@ const CompanyItem = info => {
 
 	return (
 		<Wrapper className="Company__header">
-			<Container maxWidth="lg" className="Company__header-container">
-				<Typography variant="h3" component="h1" gutterBottom>
-					{info.info.companyName}
-				</Typography>
+			<Typography variant="h3" component="h1" gutterBottom>
+				{info.info.companyName}
+			</Typography>
 
-				<div className="Company__header-info">
-					<div>
-						<Typography component="p" gutterBottom>
-							{info.info.companyMotto}
-						</Typography>
-					</div>
-					<div>
-						<Typography component="p" gutterBottom>
-							Since <Moment format="YYYY" date={info.info.companyEst} />
-						</Typography>
-					</div>
+			<div className="Company__header-info">
+				<div>
+					<Typography component="p" gutterBottom>
+						{info.info.companyMotto}
+					</Typography>
 				</div>
-			</Container>
+				<div>
+					<Typography component="p" gutterBottom>
+						Since <Moment format="YYYY" date={info.info.companyEst} />
+					</Typography>
+				</div>
+			</div>
 		</Wrapper>
 	);
 };
