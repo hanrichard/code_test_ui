@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import PropTypes from 'prop-types';
 
 const CompanySelect = ({ value, sortOptions, onChange }) => (
 	<TextField
@@ -20,5 +21,10 @@ const CompanySelect = ({ value, sortOptions, onChange }) => (
 		))}
 	</TextField>
 );
+
+CompanySelect.propTypes = {
+	onChange: PropTypes.func,
+	value: PropTypes.string,
+};
 
 export default CompanySelect;

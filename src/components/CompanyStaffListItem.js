@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
 	.CompanyItem__Card {
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 		}
 	}
 `;
-const CompanyStaffListItem = ({ employee, isSelected, showModal }) => (
+const CompanyStaffListItem = ({ employee, showModal }) => (
 	<Wrapper onClick={showModal}>
 		<Paper p={3}>
 			<Card>
@@ -43,4 +44,13 @@ const CompanyStaffListItem = ({ employee, isSelected, showModal }) => (
 	</Wrapper>
 );
 
+CompanyStaffListItem.propTypes = {
+	employee: PropTypes.shape({
+		avatar: PropTypes.string,
+		lastName: PropTypes.string,
+		firstName: PropTypes.string,
+		jobTitle: PropTypes.string,
+		bio: PropTypes.string,
+	}),
+};
 export default CompanyStaffListItem;

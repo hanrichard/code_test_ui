@@ -60,4 +60,11 @@ const CompanyModal = ({ children, show, hideModal }) =>
 			</div>
 		</ModalWrapper>
 	) : null;
+
+CompanyModal.propTypes = {
+	children: PropTypes.node,
+	show: PropTypes.bool,
+	hideModal: PropTypes.func,
+};
+
 export default CompanyModal;

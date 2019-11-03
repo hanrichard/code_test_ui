@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
 
 const CompanySearch = ({ value, onChange }) => (
 	<form>
@@ -15,4 +16,8 @@ const CompanySearch = ({ value, onChange }) => (
 	</form>
 );
 
+CompanySearch.propTypes = {
+	onChange: PropTypes.func,
+	value: PropTypes.string,
+};
 export default CompanySearch;

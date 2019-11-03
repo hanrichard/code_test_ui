@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
 
 import CompanyStaffListItem from './CompanyStaffListItem';
 
@@ -13,5 +14,10 @@ const CompanyStaffList = ({ employees, showModal }) => (
 			))}
 	</Grid>
 );
+
+CompanyStaffList.propTypes = {
+	showModal: PropTypes.func,
+	employees: PropTypes.array,
+};
 
 export default CompanyStaffList;

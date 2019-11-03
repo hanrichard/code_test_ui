@@ -63,4 +63,11 @@ class CompanyPanel extends Component {
 		);
 	}
 }
+
+CompanyPanel.propTypes = {
+	onChangeInput: PropTypes.func,
+	onChangeSelect: PropTypes.func,
+	searchValue: PropTypes.string,
+	selectValue: PropTypes.string,
+};
 export default CompanyPanel;

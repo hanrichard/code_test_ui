@@ -1,7 +1,8 @@
 import React from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Moment from 'react-moment';
+import PropTypes from 'prop-types';
+import { formatDateTimeToLocale } from '../utils/helper';
 
 import styled from 'styled-components';
 
@@ -34,7 +35,7 @@ const EmpolyeeInfo = ({ employee }) => (
 				{employee.age}
 			</Typography>
 			<Typography component="p" gutterBottom>
-				<Moment format="YYYY" date={employee.dateJoined} />
+				{formatDateTimeToLocale(employee.dateJoined)}
 			</Typography>
 		</CardContent>
 
@@ -49,5 +50,17 @@ const EmpolyeeInfo = ({ employee }) => (
 		</CardContent>
 	</Wrapper>
 );
+
+EmpolyeeInfo.propTypes = {
+	employee: PropTypes.shape({
+		avatar: PropTypes.string,
+		lastName: PropTypes.string,
+		firstName: PropTypes.string,
+		jobTitle: PropTypes.string,
+		bio: PropTypes.string,
+		dateJoined: PropTypes.string,
+		age: PropTypes.number,
+	}),
+};
 
 export default EmpolyeeInfo;

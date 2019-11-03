@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
-import Moment from 'react-moment';
+import { formatDateTimeToLocale } from '../utils/helper';
 
 const CompanyItem = info => {
 	const Wrapper = styled.div`
@@ -35,7 +35,8 @@ const CompanyItem = info => {
 				</div>
 				<div>
 					<Typography component="p" gutterBottom>
-						Since <Moment format="YYYY" date={info.info.companyEst} />
+						Since
+						{formatDateTimeToLocale(info.info.companyEst)}
 					</Typography>
 				</div>
 			</div>
@@ -43,6 +44,14 @@ const CompanyItem = info => {
 	);
 };
 
-CompanyItem.propTypes = {};
+CompanyItem.propTypes = {
+	info: PropTypes.shape({
+		info: PropTypes.shape({
+			companyName: PropTypes.string,
+			companyMotto: PropTypes.string,
+			companyEst: PropTypes.number,
+		}),
+	}),
+};
 
 export default CompanyItem;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 import Companyheader from './CompanyHeader';
 import CompanyPanel from './CompanyPanel';
