@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Fuse from 'fuse.js';
 
 import PropTypes from 'prop-types';
 import Companyheader from './CompanyHeader';
@@ -59,7 +58,7 @@ class Company extends Component {
 	render() {
 		const { companies } = this.props;
 		const { employees, companyInfo } = companies;
-		const { term, show, employee, select, displayList } = this.state;
+		const { term, show, employee, select } = this.state;
 
 		return this.props.companies.length === 0 ? (
 			<CircularProgress />

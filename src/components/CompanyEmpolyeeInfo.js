@@ -1,9 +1,6 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import { Paper } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
 import Moment from 'react-moment';
 
 import styled from 'styled-components';
