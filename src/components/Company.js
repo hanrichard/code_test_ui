@@ -92,12 +92,15 @@ class Company extends Component {
             />
           </div>
           <div className="Company__card">
-          { updatedEmployees.length === 0 ? <h2>No result</h2> : 
-            <CompanyStaffList
-              employees={updatedEmployees}
-              showModal={this.showModal}
-              employee={employee}
-            />}
+            {updatedEmployees.length === 0 ? (
+              <h2>No result</h2>
+            ) : (
+              <CompanyStaffList
+                employees={updatedEmployees}
+                showModal={this.showModal}
+                employee={employee}
+              />
+            )}
           </div>
           <div className="Company__modal">
             <CompanyModal show={show} hideModal={this.hideModal}>
