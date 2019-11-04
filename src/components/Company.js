@@ -6,8 +6,21 @@ import CompanyStaffList from "./CompanyStaffList";
 import CompanyModal from "./CompanyModal";
 import CompanyEmpolyeeInfo from "./CompanyEmpolyeeInfo";
 import Container from "@material-ui/core/Container";
+import styled from "styled-components";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
+const Wrapper = styled.div`
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+`;
 
 class Company extends Component {
   constructor(props) {
@@ -78,7 +91,9 @@ class Company extends Component {
         }, []);
 
     return this.props.companies.length === 0 ? (
-      <CircularProgress />
+      <Wrapper>
+        <CircularProgress />
+      </Wrapper>
     ) : (
       <Container maxWidth="lg">
         <div className="Company__container">
