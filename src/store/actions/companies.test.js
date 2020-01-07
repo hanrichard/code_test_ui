@@ -4,7 +4,6 @@ import moxios from 'moxios';
 import expect from 'expect';
 import * as actions from './companies';
 import * as types from './actionTypes';
-
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
