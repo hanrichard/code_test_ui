@@ -73,7 +73,6 @@ class Company extends Component {
 		const { employees, companyInfo } = companies;
 		const { term, show, employee, select } = this.state;
 		const name = this.state.select;
-
 		const regex = new RegExp(this.state.term, 'gi');
 		let updatedEmployees =
 			employees &&
