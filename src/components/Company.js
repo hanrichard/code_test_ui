@@ -69,7 +69,6 @@ class Company extends Component {
 
 	render() {
 		const { companies } = this.props;
-		console.log(companies);
 		const { employees, companyInfo } = companies;
 		const { term, show, employee, select } = this.state;
 		const name = this.state.select;
