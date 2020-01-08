@@ -23,6 +23,9 @@
 		"semantic-release": "^15.14.0",
 		"styled-components": "^4.4.1"
 	},
+	"resolutions": {
+		"jss": "10.0.0"
+	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
