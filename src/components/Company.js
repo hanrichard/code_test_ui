@@ -7,8 +7,8 @@ import CompanyModal from './CompanyModal';
 import CompanyEmpolyeeInfo from './CompanyEmpolyeeInfo';
 import Container from '@material-ui/core/Container';
 import styled from 'styled-components';
-
 import CircularProgress from '@material-ui/core/CircularProgress';
+
 const Wrapper = styled.div`
 	left: 0;
 	top: 0;
@@ -73,6 +73,7 @@ class Company extends Component {
 		const { term, show, employee, select } = this.state;
 		const name = this.state.select;
 		const regex = new RegExp(this.state.term, 'gi');
+
 		let updatedEmployees =
 			employees &&
 			employees
@@ -94,6 +95,7 @@ class Company extends Component {
 			<Container maxWidth="lg">
 				<div className="Company__container">
 					<Companyheader info={companyInfo} />
+
 					<div className="Company__container">
 						<CompanyPanel
 							onChangeInput={this.onChangeInput}
