@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 
 const containerStyles = {
 	position: 'relative',
+	padding: 0,
 };
 
 const styles = {
@@ -46,12 +47,12 @@ const CompanyModal = ({ children, show, hideModal }) => (
 		}}
 		onClose={hideModal}
 	>
-		<Paper style={containerStyles} elevation={3}>
-			<Container maxWidth="md">
+		<Container style={containerStyles} maxWidth="md">
+			<Paper elevation={3}>
 				<CloseButton hideModal={hideModal} />
 				{children}
-			</Container>
-		</Paper>
+			</Paper>
+		</Container>
 	</Modal>
 );
 

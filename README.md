@@ -1,4 +1,4 @@
-# test
+# test code
 
 ## Description
 
@@ -18,11 +18,11 @@ React, ES6, style-component, material-ui, scss, etc
 
 Go to root folder, and run:
 
-#### `npm install`
+#### `yarn install`
 
 To install all needed node modules
 
-#### `npm start`
+#### `yarn start`
 
 Runs the app<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
