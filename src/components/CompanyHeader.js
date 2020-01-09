@@ -35,8 +35,7 @@ const CompanyItem = info => {
 				</div>
 				<div>
 					<Typography component="p" gutterBottom>
-						Since
-						{formatDateTimeToLocale(info.info.companyEst)}
+						Since {formatDateTimeToLocale(info.info.companyEst)}
 					</Typography>
 				</div>
 			</div>

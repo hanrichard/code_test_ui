@@ -47,7 +47,7 @@ const CompanyModal = ({ children, show, hideModal }) => (
 		onClose={hideModal}
 	>
 		<Paper style={containerStyles} elevation={3}>
-			<Container maxWidth="lg">
+			<Container maxWidth="md">
 				<CloseButton hideModal={hideModal} />
 				{children}
 			</Container>
